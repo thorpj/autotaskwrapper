@@ -67,6 +67,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  activesupport
   autotask_api!
   rake
   rspec
