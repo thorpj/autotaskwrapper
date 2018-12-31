@@ -1,0 +1,49 @@
+require 'yaml'
+require 'autotask_api'
+
+require_relative 'autotask_wrapper/base'
+require_relative 'autotask_wrapper/entities'
+require_relative 'autotask_wrapper/entity'
+require_relative 'autotask_wrapper/version'
+
+module AutotaskWrapper
+
+  # def read_file(path)
+  #   File.read(path)
+  # end
+  #
+  # def write_file(path, text)
+  #   File.open(path, 'w') do |file|
+  #     file.write(text)
+  #   end
+  # end
+  def self.test_repair_complete_fields
+    config = YAML.load_file(File.join(File.dirname(__FILE__), '../', 'secrets.yaml'))
+    ticket_number = 'T20181221.0008'
+    autotask = AutotaskWrapper::Base.new(config['username'], config['password'])
+    ticket = AutotaskWrapper::Ticket.new ticket_number
+    fields = {
+      ticket: ticket.ticket_number,
+      account_name: ticket.account.account_name,
+      contact_name: ticket.contact.name,
+      phone: ticket.contact.phone,
+      parent_name: ticket.contact.parent_name,
+      title: ticket.title,
+      resolution: ticket.resolution,
+      vendor: ticket.vendor,
+      model: ticket.device_model_type,
+      serial_number: ticket.device_serial_number
+    }
+    pp fields[:resolution]
+    puts fields[:resolution]
+  end
+  AutotaskWrapper::test_repair_complete_fields
+end
+
+
+
+
+
+
+
+

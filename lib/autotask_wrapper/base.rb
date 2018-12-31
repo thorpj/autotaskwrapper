@@ -9,26 +9,6 @@ module AutotaskWrapper
     end
 
 
-
-    def find_contact(id, field=nil)
-      if field.nil?
-        contact = AutotaskAPI::Contact.find(id)
-      else
-        contact = AutotaskAPI::Contact.find(id, field)
-      end
-      collect_attributes(contact)
-    end
-
-    def find_account(id, field=nil)
-      if field.nil?
-        account = AutotaskAPI::Account.find(id)
-      else
-        account = AutotaskAPI::Account.find(id, field)
-      end
-      collect_attributes(account)
-    end
-
-
     def self.collect_attributes(entity)
       data = {}
       document = entity.raw_xml
@@ -53,7 +33,17 @@ module AutotaskWrapper
         end
       end
       data.delete('UserDefinedFields')
-      data.transform_keys { |key| key.parameterize.underscore }
+      data.transform_keys do |key|
+        key.underscore.gsub(" ", "_")
+      end
+    end
+
+    def self.extract_numbers(string)
+      string.delete("^0-9")
+    end
+
+    def self.extract_name(string)
+      string.delete("0-9-")&.strip
     end
   end
 end

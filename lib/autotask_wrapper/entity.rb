@@ -4,13 +4,16 @@ module AutotaskWrapper
       @data = {}
     end
 
+    def to_s
+      @data
+    end
+
     def method_missing(method, *args)
-      result = nil
-      unless args.nil?
-        key = args.first
-        if @data.key? key
-          result = @data[key]
-        end
+      key = method.to_s
+      if @data.key? key
+        result = @data[key]
+      else
+        raise NoMethodError
       end
       result
     end

@@ -1,4 +1,4 @@
 $LOAD_PATH.unshift File.expand_path("../../lib", __FILE__)
-require "autotask"
+require "autotask_wrapper"
 
 require "minitest/autorun"
