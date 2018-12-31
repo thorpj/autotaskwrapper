@@ -34,8 +34,7 @@ module AutotaskWrapper
       model: ticket.device_model_type,
       serial_number: ticket.device_serial_number
     }
-    pp fields[:resolution]
-    puts fields[:resolution]
+    pp fields[:resolution].strip
   end
   AutotaskWrapper::test_repair_complete_fields
 end
