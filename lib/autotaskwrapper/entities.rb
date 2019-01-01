@@ -65,6 +65,10 @@ module AutotaskWrapper
       result
     end
 
+    def email_address
+      @data[:e_mail_address]
+    end
+
     private
 
     def parent_data

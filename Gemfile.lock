@@ -9,7 +9,7 @@ GIT
 PATH
   remote: .
   specs:
-    autotaskwrapper (0.7.0)
+    autotaskwrapper (0.8.0)
 
 GEM
   remote: https://rubygems.org/

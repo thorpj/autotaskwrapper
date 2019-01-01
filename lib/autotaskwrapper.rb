@@ -27,7 +27,7 @@ module AutotaskWrapper
       account_name: ticket.account.account_name,
       contact_name: ticket.contact.name,
       contact_phone: ticket.contact.phone,
-      contact_email: ticket.contact.e_mail_address,
+      contact_email: ticket.contact.email_address,
       parent_name: ticket.contact.parent_name,
       title: ticket.title,
       resolution: ticket.resolution,
