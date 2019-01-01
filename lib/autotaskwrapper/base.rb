@@ -1,4 +1,4 @@
-module AutotaskWrapper
+module Autotaskwrapper
   class Base
     def initialize(username, password)
       @client = AutotaskAPI::Client.new do |c|

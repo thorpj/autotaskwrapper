@@ -1,4 +1,4 @@
-module AutotaskWrapper
+module Autotaskwrapper
   class Entity
     def initialize
       @data = {}

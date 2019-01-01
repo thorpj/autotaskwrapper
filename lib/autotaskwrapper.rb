@@ -1,12 +1,12 @@
 require 'yaml'
 require 'autotask_api'
 
-require_relative 'autotask_wrapper/base'
-require_relative 'autotask_wrapper/entities'
-require_relative 'autotask_wrapper/entity'
-require_relative 'autotask_wrapper/version'
+require_relative 'autotaskwrapper/base'
+require_relative 'autotaskwrapper/entities'
+require_relative 'autotaskwrapper/entity'
+require_relative 'autotaskwrapper/version'
 
-module AutotaskWrapper
+module Autotaskwrapper
 
   # def read_file(path)
   #   File.read(path)
@@ -20,8 +20,8 @@ module AutotaskWrapper
   def self.test_repair_complete_fields
     config = YAML.load_file(File.join(File.dirname(__FILE__), '../', 'secrets.yaml'))
     ticket_number = 'T20181221.0008'
-    autotask = AutotaskWrapper::Base.new(config['username'], config['password'])
-    ticket = AutotaskWrapper::Ticket.new ticket_number
+    autotask = Autotaskwrapper::Base.new(config['username'], config['password'])
+    ticket = Autotaskwrapper::Ticket.new ticket_number
     fields = {
       ticket: ticket.ticket_number,
       account_name: ticket.account.account_name,
@@ -34,9 +34,7 @@ module AutotaskWrapper
       model: ticket.device_model_type,
       serial_number: ticket.device_serial_number
     }
-    pp fields[:resolution].strip
   end
-  AutotaskWrapper::test_repair_complete_fields
 end
 
 
