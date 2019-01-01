@@ -4,8 +4,8 @@ class AutotaskTest < Minitest::Test
   def setup
     @config = YAML.load_file(File.join(File.dirname(__FILE__), '../', 'secrets.yaml'))
     @ticket_number = 'T20181221.0008'
-    @autotask = Autotaskwrapper::Base.new(@config['username'], @config['password'])
-    @ticket = Autotaskwrapper::Ticket.new @ticket_number
+    @autotask = AutotaskWrapper::Base.new(@config['username'], @config['password'])
+    @ticket = AutotaskWrapper::Ticket.new @ticket_number
   end
 
   def test_that_ticket_title_exists
@@ -40,7 +40,7 @@ class AutotaskTest < Minitest::Test
   end
 
   def test_that_it_has_a_version_number
-    refute_nil ::Autotaskwrapper::VERSION
+    refute_nil ::AutotaskWrapper::VERSION
   end
 
 

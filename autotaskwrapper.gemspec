@@ -4,7 +4,7 @@ require "autotaskwrapper/version"
 
 Gem::Specification.new do |spec|
   spec.name          = "autotaskwrapper"
-  spec.version       = Autotaskwrapper::VERSION
+  spec.version       = AutotaskWrapper::VERSION
   spec.authors       = ["Joe Thorpe"]
   spec.email         = ["thorpejoe4@gmail.com"]
 

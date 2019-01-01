@@ -1,8 +1,8 @@
 require_relative 'entity'
 require 'active_support/core_ext/object/blank'
 
-module Autotaskwrapper
-  class Ticket < Autotaskwrapper::Entity
+module AutotaskWrapper
+  class Ticket < AutotaskWrapper::Entity
     def initialize(id)
       @ticket = nil
       if /\A[tT]([\d]{8}).([\d]{4})\z/.match? id
@@ -13,27 +13,27 @@ module Autotaskwrapper
     end
 
     def account
-      @account = @account || Autotaskwrapper::Account.new(account_id)
+      @account = @account || AutotaskWrapper::Account.new(account_id)
     end
 
     def contact
-      @contact = @contact || Autotaskwrapper::Contact.new(contact_id)
+      @contact = @contact || AutotaskWrapper::Contact.new(contact_id)
     end
 
     private
 
     def find(id)
       @ticket = AutotaskAPI::Ticket.find(id)
-      Autotaskwrapper::Base.collect_attributes @ticket
+      AutotaskWrapper::Base.collect_attributes @ticket
     end
 
     def find_by_ticket_number(ticket_number, field='ticketnumber')
       @ticket = AutotaskAPI::Ticket.find(ticket_number, field)
-      Autotaskwrapper::Base.collect_attributes @ticket
+      AutotaskWrapper::Base.collect_attributes @ticket
     end
   end
 
-  class Contact < Autotaskwrapper::Entity
+  class Contact < AutotaskWrapper::Entity
     def initialize(id)
       @ticket = nil
       @data = find(id)
@@ -46,7 +46,7 @@ module Autotaskwrapper
     def phone
       result = nil
       parent_data.each do |value|
-        value = Autotaskwrapper::Base.extract_numbers(value)
+        value = AutotaskWrapper::Base.extract_numbers(value)
         if value.present?
           result = value
         end
@@ -57,7 +57,7 @@ module Autotaskwrapper
     def parent_name
       result = nil
       parent_data.each do |value|
-        value = Autotaskwrapper::Base.extract_name(value)
+        value = AutotaskWrapper::Base.extract_name(value)
         if value.present?
           result = value
         end
@@ -85,12 +85,12 @@ module Autotaskwrapper
 
     def find(id)
       @contact = AutotaskAPI::Contact.find(id)
-      Autotaskwrapper::Base.collect_attributes @contact
+      AutotaskWrapper::Base.collect_attributes @contact
     end
 
   end
 
-  class Account < Autotaskwrapper::Entity
+  class Account < AutotaskWrapper::Entity
     def initialize(id)
       @ticket = nil
       @data = find(id)
@@ -100,7 +100,7 @@ module Autotaskwrapper
 
     def find(id)
       @account = AutotaskAPI::Account.find(id)
-      Autotaskwrapper::Base.collect_attributes @account
+      AutotaskWrapper::Base.collect_attributes @account
     end
 
   end
