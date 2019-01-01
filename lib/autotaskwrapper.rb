@@ -36,7 +36,6 @@ module AutotaskWrapper
       serial_number: ticket.device_serial_number
     }
   end
-  pp AutotaskWrapper.test_repair_complete_fields
 end
 
 
