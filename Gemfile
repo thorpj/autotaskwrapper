@@ -5,5 +5,5 @@ gemspec
 
 gem 'rake'
 gem 'rspec'
-gem 'autotask_api', git: 'https://github.com/scoop/autotask_api.git'
+gem 'autotask_api', git: 'https://github.com/scoop/autotask_api'
 gem 'activesupport'
