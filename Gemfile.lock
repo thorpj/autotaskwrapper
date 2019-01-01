@@ -1,5 +1,5 @@
 GIT
-  remote: https://github.com/scoop/autotask_api.git
+  remote: https://github.com/scoop/autotask_api
   revision: 58e92345b40ce22449eea45549c1657a165aa723
   specs:
     autotask_api (0.1.0)
@@ -9,7 +9,7 @@ GIT
 PATH
   remote: .
   specs:
-    autotaskwrapper (0.6.0)
+    autotaskwrapper (0.7.0)
 
 GEM
   remote: https://rubygems.org/
