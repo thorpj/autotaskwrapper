@@ -26,7 +26,8 @@ module AutotaskWrapper
       ticket: ticket.ticket_number,
       account_name: ticket.account.account_name,
       contact_name: ticket.contact.name,
-      phone: ticket.contact.phone,
+      contact_phone: ticket.contact.phone,
+      contact_email: ticket.contact.e_mail_address,
       parent_name: ticket.contact.parent_name,
       title: ticket.title,
       resolution: ticket.resolution,
@@ -35,6 +36,7 @@ module AutotaskWrapper
       serial_number: ticket.device_serial_number
     }
   end
+  pp AutotaskWrapper.test_repair_complete_fields
 end
 
 
