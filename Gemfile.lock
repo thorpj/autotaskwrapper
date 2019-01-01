@@ -1,5 +1,5 @@
 GIT
-  remote: https://github.com/thorpj/autotask_api.git
+  remote: https://github.com/scoop/autotask_api.git
   revision: 58e92345b40ce22449eea45549c1657a165aa723
   specs:
     autotask_api (0.1.0)
